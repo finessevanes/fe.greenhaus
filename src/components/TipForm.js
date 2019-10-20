@@ -35,15 +35,20 @@ const TipForm=(props)=>{
 
   const useStyles = makeStyles(theme => ({
     root: {
-      display: 'flex',
-      flexWrap: 'wrap',
+      flexGrow: 1,
     },
     margin: {
-      margin: theme.spacing(1),
+      margin: theme.spacing(2),
     },
-    textField: {
-      flexBasis: 200,
-    },
+    // textField: {
+    //   flexBasis: 200,
+    // },
+//     paper: {
+//       padding: theme.spacing(2),
+//       textAlign: 'center',
+//       color: theme.palette.text.secondary,
+// },
+
   }));
 
   const classes = useStyles();
@@ -130,10 +135,9 @@ const TipForm=(props)=>{
 
   }
   return(
-    <div className={classes.root}>
-
-        <Grid container justify="center" spacing={3}>
-  
+    <div>
+    <Grid container justify="center" alignItems="center" spacing={1}>
+      <form className={classes.container} noValidate autoComplete="off">
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
                 <KeyboardDatePicker
                   inputVariant="outlined"
@@ -148,9 +152,8 @@ const TipForm=(props)=>{
                   }}
                 />
             </MuiPickersUtilsProvider>
-
             <TextField
-              id="outlined-adornment-amount"
+              id="outlined-adornment-"
               className={clsx(classes.margin, classes.textField)}
               variant="outlined"
               label="Tip Amount"
@@ -160,7 +163,6 @@ const TipForm=(props)=>{
                 startAdornment: <InputAdornment position="start">$</InputAdornment>,
               }}
             />
-
             <TextField
               select
               className={clsx(classes.margin, classes.textField)}
@@ -178,7 +180,6 @@ const TipForm=(props)=>{
                 </MenuItem>
               ))}
             </TextField>
-
             <TextField
               error
               id="outlined-adornment-amount"
@@ -190,7 +191,6 @@ const TipForm=(props)=>{
                 startAdornment: <InputAdornment position="start">${Math.ceil(tipAmount*savingsRate)}</InputAdornment>,
               }}
             />
-
             <TextField
               id="outlined-adornment-amount"
               className={clsx(classes.margin, classes.textField)}
@@ -202,11 +202,10 @@ const TipForm=(props)=>{
                 startAdornment: <InputAdornment position="start">$</InputAdornment>,
               }}
             />
-
           {buttonAction}
-
-        </Grid>
-    </div>
+    </form>
+    </Grid>
+  </div>
   )
 }
 export default TipForm
