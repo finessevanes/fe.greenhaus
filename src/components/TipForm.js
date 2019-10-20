@@ -12,6 +12,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
+import SaveIcon from '@material-ui/icons/Save';
+import Fab from '@material-ui/core/Fab';
 
 
 
@@ -118,9 +120,18 @@ const TipForm=(props)=>{
   },[])
   let buttonAction;
   if (id){
-    buttonAction = <button onClick={handleUpdateTip}>Update Tip</button>
+    buttonAction =     <Fab aria-label="save" className={classes.fab} onClick={handleUpdateTip}>
+          <SaveIcon />
+        </Fab>
   } else {
-    buttonAction = <button onClick={handleCreateTip}>Add Tip</button>
+    buttonAction = <Fab aria-label="save" className={classes.fab} onClick={handleCreateTip}>
+          <SaveIcon />
+        </Fab>
+
+
+
+
+
   }
   return(
     <div>
