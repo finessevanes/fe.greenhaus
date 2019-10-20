@@ -2,21 +2,21 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+.amountToSave {
+  text-decoration-color: red;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
+  margin-top: 5vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 30vh;
+  background: url('./images/headerlogotrans.png');
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.App-link {
-  color: #09d3ac;
+url {
+  max-width: 100%;
+  height: auto;
 }

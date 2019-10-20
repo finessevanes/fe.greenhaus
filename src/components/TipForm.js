@@ -128,86 +128,85 @@ const TipForm=(props)=>{
           <SaveIcon />
         </Fab>
 
-
-
-
-
   }
   return(
-    <div>
-      <div className={classes.root}>
-                <Grid container justify="space-around">
-        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+    <div className={classes.root}>
 
-            <KeyboardDatePicker
+        <Grid container justify="center" spacing={3}>
+  
+            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                <KeyboardDatePicker
+                  inputVariant="outlined"
+                  margin="normal"
+                  id="date-picker-dialog"
+                  label="Date"
+                  format="MM/dd/yyyy"
+                  value={date}
+                  onChange={onDateInput}
+                  KeyboardButtonProps={{
+                    'aria-label': 'change date',
+                  }}
+                />
+            </MuiPickersUtilsProvider>
 
-              margin="normal"
-              id="date-picker-dialog"
-              label="Date picker dialog"
-              format="MM/dd/yyyy"
-              value={date}
-              onChange={onDateInput}
-              KeyboardButtonProps={{
-                'aria-label': 'change date',
+            <TextField
+              id="outlined-adornment-amount"
+              className={clsx(classes.margin, classes.textField)}
+              variant="outlined"
+              label="Tip Amount"
+              value={tipAmount}
+              onChange={onTipAmountInput}
+              InputProps={{
+                startAdornment: <InputAdornment position="start">$</InputAdornment>,
               }}
             />
 
-        </MuiPickersUtilsProvider>
+            <TextField
+              select
+              className={clsx(classes.margin, classes.textField)}
+              variant="outlined"
+              label="Savings Rate"
+              value={savingsRate}
+              onChange={onSavingsRateInput}
+              InputProps={{
+                startAdornment: <InputAdornment position="start">%</InputAdornment>,
+              }}
+            >
+              {ranges.map(option => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
 
-        <TextField
-          id="outlined-adornment-amount"
-          className={clsx(classes.margin, classes.textField)}
-          variant="outlined"
-          label="Tip Amount"
-          value={tipAmount}
-          onChange={onTipAmountInput}
-          InputProps={{
-            startAdornment: <InputAdornment position="start">$</InputAdornment>,
-          }}
-        />
+            <TextField
+              error
+              id="outlined-adornment-amount"
+              className={clsx(classes.margin, classes.textField)}
+              variant="outlined"
+              label="Amount to Save"
 
-        <TextField
-          select
-          className={clsx(classes.margin, classes.textField)}
-          variant="outlined"
-          label="Savings Rate"
-          value={savingsRate}
-          onChange={onSavingsRateInput}
-          InputProps={{
-            startAdornment: <InputAdornment position="start">%</InputAdornment>,
-          }}
-        >
-          {ranges.map(option => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
+              InputProps={{
+                startAdornment: <InputAdornment position="start">${Math.ceil(tipAmount*savingsRate)}</InputAdornment>,
+              }}
+            />
 
-        </TextField>
+            <TextField
+              id="outlined-adornment-amount"
+              className={clsx(classes.margin, classes.textField)}
+              variant="outlined"
+              label="Actual Amount Saved"
+              value={amountSaved}
+              onChange={onAmountSavedInput}
+              InputProps={{
+                startAdornment: <InputAdornment position="start">$</InputAdornment>,
+              }}
+            />
 
-        <TextField
-          id="outlined-adornment-amount"
-          className={clsx(classes.margin, classes.textField)}
-          variant="outlined"
-          label="Amount to Save"
-          InputProps={{
-            startAdornment: <InputAdornment position="start">${Math.ceil(tipAmount*savingsRate)}</InputAdornment>,
-          }}
-        />
-        <TextField
-          id="outlined-adornment-amount"
-          className={clsx(classes.margin, classes.textField)}
-          variant="outlined"
-          label="Actual Amount Saved"
-          value={amountSaved}
-          onChange={onAmountSavedInput}
-          InputProps={{
-            startAdornment: <InputAdornment position="start">$</InputAdornment>,
-          }}
-        />
-          </Grid>
-        </div>
-      {buttonAction}
+          {buttonAction}
+
+        </Grid>
     </div>
-  )}
+  )
+}
 export default TipForm

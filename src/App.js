@@ -5,6 +5,11 @@ import Home from "./components/Home"
 import ShowTips from "./components/ShowTips"
 import ShowTip from "./components/ShowTip"
 import TipForm from "./components/TipForm"
+import AppBar from '@material-ui/core/AppBar';
+import Header from "./components/Header"
+
+
+
 
 class App extends React.Component {
   constructor(){
@@ -25,6 +30,8 @@ class App extends React.Component {
   }
   render(){
     return(
+    <div>
+      <div><Header /></div>
       <Router>
         <nav>
           <ul>
@@ -65,6 +72,7 @@ class App extends React.Component {
           </Switch>
         </div>
       </Router>
+      </div>
     );
   }
 }
