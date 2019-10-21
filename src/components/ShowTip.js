@@ -22,7 +22,7 @@ const ShowTip=(props)=>{
 
   React.useEffect(()=>{
     const id = props.match.params.id;
-    fetch("http://localhost:8080/tip/"+id)
+    fetch("https://dailytipout.cfapps.io/tip/"+id)
       .then((res)=>res.json())
       .then((response)=>{
           setTip(response);
@@ -30,11 +30,11 @@ const ShowTip=(props)=>{
   }, [])
 
   const deleteTip=(id)=>{
-    fetch("http://localhost:8080/tip/"+id, {
+    fetch("https://dailytipout.cfapps.io/tip/"+id, {
       method:'delete'
     }).then(()=>{
       props.fetchTips();
-      props.history.push('/tips');
+      props.history.push('https://dailytipout.cfapps.io/tips');
     })
   }
   return(

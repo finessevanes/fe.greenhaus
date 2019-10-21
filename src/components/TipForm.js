@@ -72,7 +72,7 @@ const TipForm=(props)=>{
   }
 
   const handleCreateTip=()=>{
-    fetch("http://localhost:8080/tip",{
+    fetch("https://dailytipout.cfapps.io/tip",{
       method:'post',
       headers: {
         "Content-Type":"application/json"
@@ -94,7 +94,7 @@ const TipForm=(props)=>{
   }
 
   const handleUpdateTip=()=>{
-    fetch("http://localhost:8080/tip/" + id,{
+    fetch("https://dailytipout.cfapps.io/tip/" + id,{
       method:'put',
       headers: {
         "Content-Type":"application/json"
@@ -137,7 +137,7 @@ const TipForm=(props)=>{
         <Button
           onClick={handleCreateTip}
           variant="contained"
-          style={{background:'#f3f2ee'}}
+          style={{background:'#34475c'}}
           size="large"
           className={classes.button}
           startIcon={<SaveIcon />}

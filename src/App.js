@@ -21,7 +21,7 @@ class App extends React.Component {
     }
   }
   fetchTips=()=>{
-    fetch("http://localhost:8080/tips")
+    fetch("https://dailytipout.cfapps.io/tips")
       .then((res)=>res.json())
       .then((response)=>{
         this.setState({tips:response})
