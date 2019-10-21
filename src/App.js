@@ -13,7 +13,6 @@ import Button from '@material-ui/core/Button';
 
 const LinkEdit = React.forwardRef((props,ref) => <RouterLink innerRef={ref} {...props} />);
 
-
 class App extends React.Component {
   constructor(){
     super()
@@ -21,8 +20,6 @@ class App extends React.Component {
       tips:[]
     }
   }
-
-
   fetchTips=()=>{
     fetch("http://localhost:8080/tips")
       .then((res)=>res.json())
@@ -37,8 +34,9 @@ class App extends React.Component {
     return(
     <div>
       <Router>
-        <div>
-        <AppBar style={{background:'#1abfba'}} position="static">
+        <AppBar
+          style={{background:'#1abfba'}}
+          position="fixed">
           <Toolbar>
             <Button
               component={LinkEdit} to={"/"}
@@ -54,34 +52,19 @@ class App extends React.Component {
             </Button>
           </Toolbar>
         </AppBar>
-        </div>
-
-
-        <div id="content_body">
           <Switch>
-
-          <Route path='/tip/:id' render={(props)=>(
-            <ShowTip {...props} fetchTips={this.fetchTips}/>
-          )} />
-
-          <Route path='/edit/tip/:id' render={(props)=>(
-            <TipForm {...props} fetchTips={this.fetchTips}/>
-          )} />
-
-          <Route path='/create' render={(props)=>(
-            <TipForm {...props} fetchTips={this.fetchTips}/>
-          )} />
-
-            <Route exact path='/'>
-              <Home />
-            </Route>
-
-            <Route path='/tips'>
-              <ShowTips tips={this.state.tips}/>
-            </Route>
-
-          </Switch>
-        </div>
+            <Route path='/tip/:id' render={(props)=>(
+              <ShowTip {...props} fetchTips={this.fetchTips}/>
+            )} />
+            <Route path='/edit/tip/:id' render={(props)=>(
+              <TipForm {...props} fetchTips={this.fetchTips}/>
+            )} />
+            <Route path='/create' render={(props)=>(
+              <TipForm {...props} fetchTips={this.fetchTips}/>
+            )} />
+            <Route exact path='/' render={(props)=>(  <Home /> )} />
+            <Route path='/tips' render={(props)=>( <ShowTips tips={this.state.tips} /> )} />
+        </Switch>
       </Router>
       </div>
     );

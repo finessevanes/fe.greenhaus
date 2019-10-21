@@ -42,7 +42,6 @@
   transition: 0.4s;
   width: 250px;
   height: 350px;
-
 }
 .tipText {
   font-family: "Trebuchet MS", Helvetica, sans-serif;
@@ -63,24 +62,39 @@
 .amountSavedText {
   margin-bottom: 10vh;
 }
-.header {
-
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
+.formContainer{
+  margin-top: 5vh;
 }
-
-.headerContainer {
+.homeContainer {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  background-image: url('https://drscdn.500px.org/photo/1004822028/m%3D900/v2?sig=861f8e04469ecb433b8ffaa6648dff28cb7f0b26342142626b3665690c9a6ceb');
+  background: cover;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: 50% 15%;
 }
 
-.headerItem {
+.topItem {
+  margin-top: 60vh;
+  margin-bottom: 1vh;
+}
 
+.homeItem {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 25px;
+  letter-spacing: -0.8px;
+  word-spacing: 2px;
+  font-weight: normal;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
+  color: #505b43;
 }
 
 url {
-  max-width: 100%;
-  height: auto;
+  /* margin-bottom: 50vh; */
 }

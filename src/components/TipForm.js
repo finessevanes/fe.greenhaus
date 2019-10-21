@@ -13,7 +13,11 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import SaveIcon from '@material-ui/icons/Save';
-import Fab from '@material-ui/core/Fab';
+import Button from '@material-ui/core/Button';
+import Icon from '@material-ui/core/Icon';
+import cyan from '@material-ui/core/colors/cyan';
+
+const primary = cyan[900];
 
 
 
@@ -34,20 +38,12 @@ const TipForm=(props)=>{
   ];
 
   const useStyles = makeStyles(theme => ({
-    root: {
-      flexGrow: 1,
-    },
-    margin: {
-      margin: theme.spacing(2),
-    },
     textField: {
-      flexBasis: 200,
+      flexBasis: 100,
     },
-//     paper: {
-//       padding: theme.spacing(2),
-//       textAlign: 'center',
-//       color: theme.palette.text.secondary,
-// },
+    container: {
+      display: 'flex',
+    }
 
   }));
 
@@ -125,20 +121,35 @@ const TipForm=(props)=>{
   },[])
   let buttonAction;
   if (id){
-    buttonAction =     <Fab aria-label="save" className={classes.margin} onClick={handleUpdateTip}>
-          <SaveIcon />
-        </Fab>
+    buttonAction =
+      <Button
+        onClick={handleUpdateTip}
+        variant="contained"
+        style={{background:'#f3f2ee'}}
+        size="large"
+        className={classes.button}
+        startIcon={<SaveIcon />}
+      >
+        Save
+      </Button>
   } else {
-    buttonAction = <Fab aria-label="save"  className={classes.margin} onClick={handleCreateTip}>
-          <SaveIcon />
-        </Fab>
-
+    buttonAction =
+        <Button
+          onClick={handleCreateTip}
+          variant="contained"
+          style={{background:'#f3f2ee'}}
+          size="large"
+          className={classes.button}
+          startIcon={<SaveIcon />}
+        >
+          Save
+        </Button>
   }
   return(
-    <div>
-    <Grid container justify="space-evenly" alignItems="center" spacing={1}>
+    <Grid className="formContainer" container direction="column" alignItems="center">
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
                 <KeyboardDatePicker
+                  className={classes.textField}
                   inputVariant="outlined"
                   margin="normal"
                   id="date-picker-dialog"
@@ -153,7 +164,7 @@ const TipForm=(props)=>{
             </MuiPickersUtilsProvider>
             <TextField
               id="outlined-adornment-"
-              className={clsx(classes.margin, classes.textField)}
+              className={classes.textField}
               variant="outlined"
               label="Tip Amount"
               value={tipAmount}
@@ -164,7 +175,8 @@ const TipForm=(props)=>{
             />
             <TextField
               select
-              className={clsx(classes.margin, classes.textField)}
+              // fullWidth={true}
+              className={classes.textField}
               variant="outlined"
               label="Savings Rate"
               value={savingsRate}
@@ -182,7 +194,7 @@ const TipForm=(props)=>{
             <TextField
               error
               id="outlined-adornment-amount"
-              className={clsx(classes.margin, classes.textField)}
+              className={classes.textField}
               variant="outlined"
               label="Amount to Save"
 
@@ -193,7 +205,7 @@ const TipForm=(props)=>{
             <TextField
               required
               id="outlined-adornment-amount"
-              className={clsx(classes.margin, classes.textField)}
+              className={classes.textField}
               variant="outlined"
               label="Actual Amount Saved"
               value={amountSaved}
@@ -202,10 +214,8 @@ const TipForm=(props)=>{
                 startAdornment: <InputAdornment position="start">$</InputAdornment>,
               }}
             />
-
           {buttonAction}
     </Grid>
-  </div>
   )
 }
 export default TipForm
