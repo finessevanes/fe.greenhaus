@@ -125,7 +125,7 @@ const TipForm=(props)=>{
       <Button
         onClick={handleUpdateTip}
         variant="contained"
-        style={{background:'#d9544d'}}
+        style={{background:'#f3f2ee'}}
         size="large"
         className={classes.button}
         startIcon={<SaveIcon />}
@@ -137,7 +137,7 @@ const TipForm=(props)=>{
         <Button
           onClick={handleCreateTip}
           variant="contained"
-          style={{background:'#d9544d'}}
+          style={{background:'#f3f2ee'}}
           size="large"
           className={classes.button}
           startIcon={<SaveIcon />}
