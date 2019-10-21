@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.cardsList {
+.tipsContainer {
   z-index: 0;
   width: 100%;
   display: flex;
@@ -10,29 +10,61 @@
   flex-wrap: wrap;
 }
 .tipsCard {
-  margin: 30px auto;
+  margin: 5vh;
   width: 200px;
   height: 75px;
-  background-color: #34475c;
-  border-radius: 40px;
+  background-color: #f3f2ee;
+  border-radius: 20px;
   box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
-  cursor: pointer;
   transition: 0.4s;
   text-align: center;
-  padding-top: 4vh;
+  padding-top: 2vh;
+  text-decoration-color: #34475c;
+}
+.tipsCard:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25),
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
 }
 
-.header {
-  background: url('./images/headerlogotrans.png');
+.tipContainer {
+  padding: 10vh;
+  display: flex;
+  justify-content: center;
 
-  display: block;
-margin-left: auto;
-margin-right: auto;
-width: 50%;
+}
+.tipCard {
+  padding-top: 2vh;
+  text-align: center;
+  background-color: #f3f2ee;
+  border-radius: 20px;
+  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  transition: 0.4s;
+  width: 250px;
+  height: 350px;
 
+}
+.tipText {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 25px;
+  letter-spacing: -0.8px;
+  word-spacing: 2px;
+  color: #000000;
+  font-weight: normal;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+}
+.dateText {
   margin-top: 1vh;
-  /* display: flex; */
-  height: 20vh;
+  margin-bottom: 3vh;
+}
+.amountSavedText {
+  margin-bottom: 10vh;
+}
+.header {
+
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;

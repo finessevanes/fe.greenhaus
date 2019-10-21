@@ -1,14 +1,17 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link as RouterLink } from "react-router-dom";
 import Home from "./components/Home"
 import ShowTips from "./components/ShowTips"
 import ShowTip from "./components/ShowTip"
 import TipForm from "./components/TipForm"
 import AppBar from '@material-ui/core/AppBar';
-import Header from "./components/Header"
+import { makeStyles } from '@material-ui/core/styles';
+import Toolbar from '@material-ui/core/Toolbar';
+import Button from '@material-ui/core/Button';
 
 
+const LinkEdit = React.forwardRef((props,ref) => <RouterLink innerRef={ref} {...props} />);
 
 
 class App extends React.Component {
@@ -18,6 +21,8 @@ class App extends React.Component {
       tips:[]
     }
   }
+
+
   fetchTips=()=>{
     fetch("http://localhost:8080/tips")
       .then((res)=>res.json())
@@ -31,21 +36,27 @@ class App extends React.Component {
   render(){
     return(
     <div>
-      <div><Header /></div>
       <Router>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/tips">View Tips</Link>
-            </li>
-            <li>
-              <Link to="/create">Add Tips</Link>
-            </li>
-          </ul>
-        </nav>
+        <div>
+        <AppBar style={{background:'#1abfba'}} position="static">
+          <Toolbar>
+            <Button
+              component={LinkEdit} to={"/"}
+              color="inherit">Home
+            </Button>
+            <Button
+              component={LinkEdit} to={"/create"}
+              color="inherit">Add Tips
+            </Button>
+            <Button
+              component={LinkEdit} to={"/tips"}
+              color="inherit">View Tips
+            </Button>
+          </Toolbar>
+        </AppBar>
+        </div>
+
+
         <div id="content_body">
           <Switch>
 
