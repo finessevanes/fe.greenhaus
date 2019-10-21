@@ -12,7 +12,6 @@ const LinkEdit = React.forwardRef((props,ref) => <RouterLink innerRef={ref} {...
 
 const ShowTip=(props)=>{
   const [tip, setTip] = React.useState({});
-
   const useStyles = makeStyles(theme => ({
     button: {
       margin: theme.spacing(1),
@@ -50,7 +49,7 @@ const ShowTip=(props)=>{
           component={LinkEdit}
           to={"/edit/tip/" + tip.id}
           variant="contained"
-          color="primary"
+          style={{background:'#20c5d1'}}
           className={classes.button}
           startIcon={<EditIcon />}
         >
@@ -59,7 +58,7 @@ const ShowTip=(props)=>{
         <Button
           variant="contained"
           onClick={()=>deleteTip(tip.id)}
-          color="secondary"
+          style={{background:'#d9544d'}}
           className={classes.button}
           startIcon={<DeleteIcon />}
         >

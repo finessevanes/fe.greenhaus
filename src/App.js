@@ -36,7 +36,7 @@ class App extends React.Component {
       <Router>
         <AppBar
           style={{background:'#1abfba'}}
-          position="fixed">
+          position="sticky">
           <Toolbar>
             <Button
               component={LinkEdit} to={"/"}

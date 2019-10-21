@@ -1,18 +1,27 @@
 .App {
   text-align: center;
 }
-
+.fromNowText {
+  color: grey;
+  font-size: 12px;
+  margin-bottom: 1vh;
+}
+.tipsCardText {
+  font-size: 15px;
+  margin-bottom: 2vh;
+}
 .tipsContainer {
   z-index: 0;
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  align-content: center;
+  justify-content: center;
   flex-wrap: wrap;
 }
 .tipsCard {
-  margin: 5vh;
-  width: 200px;
-  height: 75px;
+  margin: 3vh;
+  width: 250px;
+  height: 100px;
   background-color: #f3f2ee;
   border-radius: 20px;
   box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
@@ -31,7 +40,6 @@
   padding: 10vh;
   display: flex;
   justify-content: center;
-
 }
 .tipCard {
   padding-top: 2vh;
@@ -45,7 +53,7 @@
 }
 .tipText {
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 25px;
+  font-size: 20px;
   letter-spacing: -0.8px;
   word-spacing: 2px;
   color: #000000;
@@ -54,13 +62,16 @@
   font-style: normal;
   font-variant: normal;
   text-transform: none;
+  margin-bottom: 1vh;
 }
 .dateText {
   margin-top: 1vh;
-  margin-bottom: 3vh;
+  margin-bottom: 8vh;
+  color: grey;
+  font-size: 20px;
 }
 .amountSavedText {
-  margin-bottom: 10vh;
+  margin-bottom: 8vh;
 }
 .formContainer{
   margin-top: 5vh;
@@ -71,21 +82,22 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url('https://drscdn.500px.org/photo/1004822028/m%3D900/v2?sig=861f8e04469ecb433b8ffaa6648dff28cb7f0b26342142626b3665690c9a6ceb');
-  background: cover;
-  background-size: auto;
+  background-image: url('https://i.ibb.co/zHwB9Zs/logotrans.png');
+  background-size: 80vw;
   background-repeat: no-repeat;
-  background-position: 50% 15%;
+  background-position: 50% 20%;
 }
 
 .topItem {
   margin-top: 60vh;
   margin-bottom: 1vh;
+  font-size: 25px;
 }
-
+.bottomItem {
+  font-size: 15px;
+}
 .homeItem {
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 25px;
   letter-spacing: -0.8px;
   word-spacing: 2px;
   font-weight: normal;
@@ -95,6 +107,20 @@
   color: #505b43;
 }
 
-url {
-  /* margin-bottom: 50vh; */
+@media only screen and (max-width: 700px) {
+  .homeContainer {
+    background-image: url('https://i.ibb.co/zHwB9Zs/logotrans.png');
+    background: cover;
+    background-size: 80vw;
+    background-repeat: no-repeat;
+    background-position: 50% 15%;
+  }
+  .topItem {
+    margin-top: 60vh;
+    margin-bottom: 1vh;
+    font-size: 20px;
+  }
+  .bottomItem {
+    font-size: 15px;
+  }
 }

@@ -11,8 +11,8 @@ const ShowTips=(props)=>{
   let tipsElem = props.tips.map((tip, idx)=>{
     return(
       <div key={idx} className="tipsCard">
-                <div>Date: <Moment format="MMM D, YYYY" withTitle>{tip.date}</Moment></div>
-                <div>Tip Amount: {tip.tipAmount}</div>
+                <div className="fromNowText"><Moment fromNow>{tip.date}</Moment></div>
+                <div className="tipsCardText"><Moment format="dddd MMM D, YYYY" withTitle>{tip.date}</Moment></div>
                 <Button
                   component={LinkEdit} to={"/tip/" + tip.id}
                   color="inherit">View More
