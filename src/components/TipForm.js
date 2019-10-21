@@ -40,9 +40,9 @@ const TipForm=(props)=>{
     margin: {
       margin: theme.spacing(2),
     },
-    // textField: {
-    //   flexBasis: 200,
-    // },
+    textField: {
+      flexBasis: 200,
+    },
 //     paper: {
 //       padding: theme.spacing(2),
 //       textAlign: 'center',
@@ -125,19 +125,18 @@ const TipForm=(props)=>{
   },[])
   let buttonAction;
   if (id){
-    buttonAction =     <Fab aria-label="save" className={classes.fab} onClick={handleUpdateTip}>
+    buttonAction =     <Fab aria-label="save" className={classes.margin} onClick={handleUpdateTip}>
           <SaveIcon />
         </Fab>
   } else {
-    buttonAction = <Fab aria-label="save" className={classes.fab} onClick={handleCreateTip}>
+    buttonAction = <Fab aria-label="save"  className={classes.margin} onClick={handleCreateTip}>
           <SaveIcon />
         </Fab>
 
   }
   return(
     <div>
-    <Grid container justify="center" alignItems="center" spacing={1}>
-      <form className={classes.container} noValidate autoComplete="off">
+    <Grid container justify="space-evenly" alignItems="center" spacing={1}>
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
                 <KeyboardDatePicker
                   inputVariant="outlined"
@@ -192,6 +191,7 @@ const TipForm=(props)=>{
               }}
             />
             <TextField
+              required
               id="outlined-adornment-amount"
               className={clsx(classes.margin, classes.textField)}
               variant="outlined"
@@ -202,8 +202,8 @@ const TipForm=(props)=>{
                 startAdornment: <InputAdornment position="start">$</InputAdornment>,
               }}
             />
+
           {buttonAction}
-    </form>
     </Grid>
   </div>
   )

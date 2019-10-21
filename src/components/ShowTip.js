@@ -41,21 +41,19 @@ const ShowTip=(props)=>{
     })
   }
   return(
-    <div>
-      <li>
-        <ul>Date: <Moment format="MMM D, YYYY" withTitle>{tip.date}</Moment></ul>
-        <ul>Tip Amount: ${tip.tipAmount}</ul>
-        <ul>Savings Rate: {tip.savingsRate*100}%</ul>
-        <ul>Amount Saved: ${tip.amountSaved}</ul>
-      </li>
+    <div className="cardContainer">
+      <div className="card">
+        <div>Date: <Moment format="MMM D, YYYY" withTitle>{tip.date}</Moment></div>
+        <div>Tip Amount: ${tip.tipAmount}</div>
+        <div>Savings Rate: {tip.savingsRate*100}%</div>
+        <div>Amount Saved: ${tip.amountSaved}</div>
+      <Fab label="Details" component={LinkEdit} to={"/edit/tip/" + tip.id} color="secondary" aria-label="edit" className={classes.fab}>
+        <EditIcon />
+      </Fab>
       <Fab aria-label="delete" className={classes.fab} onClick={()=>deleteTip(tip.id)}>
         <DeleteIcon />
       </Fab>
-
-        <Fab label="Details" component={LinkEdit} to={"/edit/tip/" + tip.id} color="secondary" aria-label="edit" className={classes.fab}>
-          <EditIcon />
-        </Fab>
-
+      </div>
     </div>
   )
 }
