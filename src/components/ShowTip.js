@@ -34,7 +34,7 @@ const ShowTip=(props)=>{
       method:'delete'
     }).then(()=>{
       props.fetchTips();
-      props.history.push('https://dailytipout.cfapps.io/tips');
+      props.history.push('/tips');
     })
   }
   return(
